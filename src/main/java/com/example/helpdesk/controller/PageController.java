@@ -1,5 +1,5 @@
 package com.example.helpdesk.controller;
-
+import java.util.Map;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -12,11 +12,12 @@ public class PageController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("pageTitle", "Help Desk");
-        model.addAttribute("welcomeMessage", "Добро пwegwegwgwegать в Help Desk");
+        model.addAttribute("welcomeMessage", "Добро пожаловать в Help Desk");
         model.addAttribute("features", List.of(
                 "Регистрация обращений",
                 "Приоритизация задач",
-                "Контакты поддержки"
+                "Контакты поддержки",
+                "База Данных"
         ));
         return "index";
     }
@@ -36,6 +37,38 @@ public class PageController {
         model.addAttribute("supportEmail", "support@helpdesk.local");
         model.addAttribute("workTime", "Пн-Пт, 09:00-18:00");
         model.addAttribute("phone", "+7 (000) 000-00-00");
+
+        List<String> obrashenie = List.of(
+                "Фио и контактные данные",
+                "Проблемка",
+                "скрины"
+        );
+        model.addAttribute("obrashenie", obrashenie);
+
+        List<Map<String, String>> SupportCh = List.of(
+                Map.of("channel", "Email", "value", "supporthelpdesk@gmail.ululu"),
+                Map.of("channel", "Телефон", "value", "8 800 555 35 35"),
+                Map.of("channel", "Telegram", "value", "@helpdesk_support")
+        );
+        model.addAttribute("SupportCh", SupportCh);
+
         return "contacts";
+    }
+
+    @GetMapping("/faq")
+    public String faq(Model model) {
+        model.addAttribute("pageTitle", "Частые вопросы:");
+        List<Map<String, String>> faqList = List.of(
+                Map.of("question", "Как написать обращение?",
+                        "answer", "Свяжитесь с поддержкой"),
+                Map.of("question", "Через сколько приходит ответ?",
+                        "answer", "В течение дня."),
+                Map.of("question", "Как узнать статус обращения?",
+                        "answer", "в теории в личном кабинете если будет хз"),
+                Map.of("question", "Можно ли запросить консультацию по телефону?",
+                        "answer", "Да, наш сотрудник перезвонит")
+        );
+        model.addAttribute("faqList", faqList);
+        return "faq";
     }
 }

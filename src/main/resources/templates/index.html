@@ -12,11 +12,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand fw-bold" th:href="@{/}">Help Desk</a>
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+            <img th:src="@{/images/logo2.png}" alt="Logo" height="30" class="d-inline-block align-text-top me-2">
+            Help Desk
+        </a>
         <div class="navbar-nav">
             <a class="nav-link active" th:href="@{/}">Главная</a>
             <a class="nav-link" th:href="@{/about}">О нас</a>
             <a class="nav-link" th:href="@{/contacts}">Контакты</a>
+            <a class="nav-link" th:href="@{/faq}">faq</a>
         </div>
     </div>
 </nav>
