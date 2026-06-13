@@ -23,7 +23,13 @@
             <a class="nav-link" th:href="@{/faq}">faq</a>
             <a class="nav-link" href="/tickets">Заявки</a>
             <a class="nav-link" th:href="@{/tickets/new}">Создать заявку</a>
-            <a class="nav-link" th:href="@{/admin/tickets}">Админ-панель</a>
+            <a class="nav-link" th:href="@{/admin/tickets}">Войти как админ</a>
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <button type="submit" class="nav-link"
+                        th:text="Выйти"
+                        style="background: none !important; border: none; padding: 0.5rem 1rem; cursor: pointer;">
+                </button>
+            </form>
         </div>
     </div>
 </nav>

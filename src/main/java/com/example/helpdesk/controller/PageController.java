@@ -31,6 +31,11 @@ public class PageController {
         return "about";
     }
 
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "access-denied";
+    }
+
     @GetMapping("/contacts")
     public String contacts(Model model) {
         model.addAttribute("pageTitle", "Контакты поддержки");

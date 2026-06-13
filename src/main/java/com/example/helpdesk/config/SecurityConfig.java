@@ -32,6 +32,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers(PathRequest.toH2Console())
                 )
+
+                .exceptionHandling(exception -> exception
+                        .accessDeniedPage("/access-denied")
+                )
                 .headers(headers -> headers
                         .frameOptions(frame -> frame.sameOrigin())
                 )
